@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace HashTable
 {
-    class MyMapNode<K,V>
+    class MyMapNode<K, V>
     {
         private int size;
         private LinkedList<KeyValue<K, V>>[] items;
-
         public MyMapNode(int size)
         {
             this.size = size;
@@ -31,7 +30,6 @@ namespace HashTable
             }
             return linkedlist;
         }
-
         public V GetV(K key)
         {
             int pos = GetArrayPosition(key);
@@ -70,6 +68,17 @@ namespace HashTable
                     linkedlist.Remove(foundItem);
                 }
             }
+        }
+        public bool IsEmpty()
+        {
+            if (Getsize() <= 0)
+                return true;
+            else
+                return false;
+        }
+        public int Getsize()
+        {
+            return size;
         }
     }
     public struct KeyValue<k, v>
